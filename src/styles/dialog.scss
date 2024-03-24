@@ -1,0 +1,31 @@
+#dialog{
+    width: 800px;
+    max-width: 90vw;
+    max-height: 90vh;
+    height: fit-content;
+    border:none;
+    &::backdrop{
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .image-console{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: min-content;
+        &>div{
+            width: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: min-height 4s ease-in-out;
+            h5{
+                width: min-content;
+            }
+        }
+    }
+}
