@@ -53,7 +53,7 @@ const authSlice = createSlice({
   },extraReducers:(builder)=>{
 
         // userLogin
-        builder.addCase(userLogin.pending, (state, action)=>{
+        builder.addCase(userLogin.pending, (state)=>{
             state.loading=true
             state.error = null
         })
@@ -73,7 +73,7 @@ const authSlice = createSlice({
             state.error = null
             console.log("Pending Registering")
         })
-        builder.addCase(registerUser.fulfilled, (state, {payload})=>{
+        builder.addCase(registerUser.fulfilled, (state)=>{
             state.loading = false
             state.success = true
             console.log("Successful Registering")

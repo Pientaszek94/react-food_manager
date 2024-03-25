@@ -1,4 +1,3 @@
-import React from 'react'
 import "../styles/home.scss"
 import { Posts } from '../components'
 import { Outlet } from 'react-router-dom';

@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
 const backendURL= 
-process.env.NODE_ENV!=="production"
+import.meta.env.NODE_ENV!=="production"
 ? "http://127.0.0.1:5000/"
 : import.meta.env.VITE_SERVER_URL
 

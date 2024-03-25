@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import '../styles/favourites.scss'
 import Posts from './Posts'
 

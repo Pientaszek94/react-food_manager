@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 import "react-image-crop/dist/ReactCrop.css";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
   useLocation,

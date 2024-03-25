@@ -1,4 +1,3 @@
-import React from 'react'
 import "../styles/dialog.scss"
 
 function Dialog({dialogRef, children}) {

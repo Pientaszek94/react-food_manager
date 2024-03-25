@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import ReactCrop, {
     centerCrop,
     convertToPixelCrop,
@@ -59,7 +59,7 @@ function CropImage({handleChange, setError, error, dialogRef}) {
         setCrop(centeredCrop);
     };
 
-    const croppAndUpdate=(e)=>{
+    const croppAndUpdate=()=>{
         setCanvasPreview(
             imgRef.current, // HTMLImageElement
             previewCanvasRef.current, // HTMLCanvasElement
@@ -75,7 +75,7 @@ function CropImage({handleChange, setError, error, dialogRef}) {
         .then(()=> {setFile("")
                     closeModal()
                         })
-        .catch((error)=> {
+        .catch(()=> {
             console.log("NBRRRO")
             setError("Something went wrong!  Please try again another time.")
             setFile("")})
@@ -88,7 +88,6 @@ function CropImage({handleChange, setError, error, dialogRef}) {
   return (
     <div className='image-console'>
         <input ref={inputRef} className='input-file' id="input-file" type="file" accept='image/*' onChange={handleSelectImage} />
-        {/* {error && (<h4>{error}</h4>)} */}
         {
             file ?(
                 <div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import "../styles/recipe.scss"
 import Logo from './Logo'
@@ -15,13 +15,12 @@ function Recipe({postsList, userInfo}) {
     useEffect(()=>{
         setCurrentRecipe(postsList?.findIndex((obj)=> slug==obj.slug))
         setCheckedIndex(postsList?.findIndex((obj)=> slug==obj.slug))
-      },[slug])
+      },[slug, postsList])
 
     const nextRecipe=()=>{
         navigate(baseURl+"/"+postsList[currentRecipe+1]?.slug)
     }
     const prevRecipe=()=>{
-        if(currentRecipe==0){}
         navigate(baseURl+"/"+postsList[currentRecipe-1]?.slug)
     }
 
@@ -34,31 +33,31 @@ function Recipe({postsList, userInfo}) {
     }
     
 
-    const updatePostsLikes=async()=>{
+//     const updatePostsLikes=async()=>{
 
-        console.log("Clicked Like")
-        let postsLikes=post?.likes
-        const indexRecipe=userInfo.recipes.findIndex((recipe)=>recipe==post.slug)
-        console.log("index", indexRecipe)
-        if(indexRecipe==-1){
-          ++postsLikes
-          await pushUserRecipes({recipes:post.slug}).unwrap()
-                .then((payload)=>{
-                  dispatch(pushRecipe(post.slug))
-                  updatePost({variables:{likes:postsLikes, id: post.id}})
-                })
-        }
-        else {
-            --postsLikes
-            await pullUserRecipes({recipes:post.slug}).unwrap()
-            .then((payload)=>{
-                console.log("Success PUSH")
-                dispatch(pullRecipe(post.slug))
-                updatePost({variables:{likes:postsLikes, id: post.id}})
-            })
-        } 
+//         console.log("Clicked Like")
+//         let postsLikes=post?.likes
+//         const indexRecipe=userInfo.recipes.findIndex((recipe)=>recipe==post.slug)
+//         console.log("index", indexRecipe)
+//         if(indexRecipe==-1){
+//           ++postsLikes
+//           await pushUserRecipes({recipes:post.slug}).unwrap()
+//                 .then((payload)=>{
+//                   dispatch(pushRecipe(post.slug))
+//                   updatePost({variables:{likes:postsLikes, id: post.id}})
+//                 })
+//         }
+//         else {
+//             --postsLikes
+//             await pullUserRecipes({recipes:post.slug}).unwrap()
+//             .then((payload)=>{
+//                 console.log("Success PUSH")
+//                 dispatch(pullRecipe(post.slug))
+//                 updatePost({variables:{likes:postsLikes, id: post.id}})
+//             })
+//         } 
 
-  }
+//   }
 
 
   return (

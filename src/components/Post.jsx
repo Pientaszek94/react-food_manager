@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import "../styles/post.scss"
 import { useMutation } from '@apollo/client'
 import { UPDATE_POST } from '../app/services/cms/mutations'
 import { useDispatch } from 'react-redux'
-import { usePullUserRecipesMutation, usePushUserRecipesMutation, useUpdateUserMutation } from '../app/services/auth/authService'
-import { pullRecipe, pushRecipe, updateUserInfo } from '../features/auth/authSlice'
+import { usePullUserRecipesMutation, usePushUserRecipesMutation} from '../app/services/auth/authService'
+import { pullRecipe, pushRecipe } from '../features/auth/authSlice'
 
 function Post({post, ...props}) {
   
@@ -26,7 +26,7 @@ function Post({post, ...props}) {
     else{
       setModalPath("recipes")
     }
-  },[])
+  },[pathname])
 
 
 
@@ -39,7 +39,7 @@ function Post({post, ...props}) {
         if(indexRecipe==-1){
           ++postsLikes
           await pushUserRecipes({recipes:post.slug}).unwrap()
-                .then((payload)=>{
+                .then(()=>{
                   dispatch(pushRecipe(post.slug))
                   updatePost({variables:{likes:postsLikes, id: post.id}})
                 })
@@ -47,7 +47,7 @@ function Post({post, ...props}) {
               else {
                 --postsLikes
                 await pullUserRecipes({recipes:post.slug}).unwrap()
-                .then((payload)=>{
+                .then(()=>{
                   console.log("Success PUSH")
                   dispatch(pullRecipe(post.slug))
                   updatePost({variables:{likes:postsLikes, id: post.id}})

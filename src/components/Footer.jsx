@@ -1,4 +1,3 @@
-import React from 'react'
 import "../styles/footer.scss"
 function Footer() {
     const food="https://www.wallpapers.net/free-download-assorted-food-hd-wallpaper-for-desktop-mobiles/download/5120x2160.jpg"

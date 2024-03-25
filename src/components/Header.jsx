@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "../styles/header.scss"
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { NavLink, useLocation} from 'react-router-dom'
-import { logout, setCredentials } from '../features/auth/authSlice'
+import { logout } from '../features/auth/authSlice'
 import Logo from './Logo'
 import noprofile from '../assets/no-profile.svg'
 

@@ -55,7 +55,7 @@ const LoginScreen = () => {
             </button>
           }
         <div>
-          <span>Don't have an account yet? Please, <NavLink to='/register'>Sign Up</NavLink></span>
+          <span>Don&apos;t have an account yet? Please, <NavLink to='/register'>Sign Up</NavLink></span>
         </div>
     </form>
     </main>

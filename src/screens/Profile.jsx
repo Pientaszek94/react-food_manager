@@ -11,17 +11,17 @@ import { Outlet } from 'react-router-dom';
 import { placeholder } from '../features/auth/placeholder';
 const Profile = (props) => {
   const {userInfo}=props
-  const [deleteUser]=useDeleteUserMutation()
+  // const [deleteUser]=useDeleteUserMutation()
   const [updateUser]= useUpdateUserMutation()
   const [error, setError]=useState()
   const dispatch=useDispatch()
   const dialogRef=useRef()
   const [description, setDescription]=useState(userInfo?.desc? userInfo?.desc:"")
 
-  const handleDeleteUser=async()=>{
-    await deleteUser().unwrap()
-    .then(()=>{ dispatch(logout()) })
-  }
+  // const handleDeleteUser=async()=>{
+  //   await deleteUser().unwrap()
+  //   .then(()=>{ dispatch(logout()) })
+  // }
 
 
   const handleChange=async(data)=>{

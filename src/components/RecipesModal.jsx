@@ -1,4 +1,3 @@
-import React from 'react'
 import "../styles/recipes-modal.scss"
 
 function RecipesModal({recipe}) {

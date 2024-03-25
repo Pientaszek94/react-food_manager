@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, NavLink } from 'react-router-dom'
 import {Error, Spinner} from '../components'
 import { registerUser } from '../features/auth/authActions'
-import axios from 'axios'
 
 function Register() {
 
@@ -41,23 +40,6 @@ function Register() {
     }
 
     // asyncFunction for testing purposes
-
-    const asyncFunction= async({name, email, password})=>{
-
-        const config = {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-
-        await axios.post("http://127.0.0.1:5000/api/v1/users/", 
-        {name, email, password},
-        config
-        )
-
-        console.log("Async Function")
-
-    }
 
 
     return (
